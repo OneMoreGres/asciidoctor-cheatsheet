@@ -353,9 +353,29 @@ a|.asciidoctor-pdf
 `*asciidoctor-pdf* _sample.adoc_` \|
 `asciidoctor *-r asciidoctor-pdf -b pdf* _sample.adoc_`
 
+
+a|.localization
+[%hardbreaks]
+*:appendix-caption:*
+*:caution-caption:*
+*:chapter-label:*
+*:example-caption:*
+*:figure-caption:*
+*:important-caption:*
+*:last-update-label:*
+*:listing-caption:*
+*:manname-title:*
+*:note-caption:*
+*:preface-title:*
+*:table-caption:*
+*:tip-caption:*
+*:toc-title:*
+*:untitled-label:*
+*:version-label:*
+*:warning-caption:*
+
 //TODO a|.docinfo
 //TODO a|.index
-//TODO a|.localization
 
 
 a|
