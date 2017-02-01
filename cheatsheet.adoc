@@ -314,8 +314,48 @@ pass:[++++] +
 **menu:**_Menu_**[**_Submenu_ **>** _Item_**]** - menu +
 **++btn++:[**_OK_**]** - buttons
 
+
+
+a|.asciidoctor-diagram
+**[**_type_, _generated-file-name_, _image-format_**]  **  +
++....+ +
+_diagram text_ +
++....+
+
+_type_**::**__source-file__**[**_generated-file-name_**]**
+
+_type_=[*actdiag \| blockdiag \| ditaa \| graphviz \| meme \|
+mermaid \| nwdiag  \| packetdiag\| plantuml \| rackdiag \|
+seqdiag \| shaape \| wavedrom* ] +
+_image-format_=[*gif* \| *png* \| *svg* \| *txt*]
+
+`asciidoctor *-r asciidoctor-diagram* _sample.adoc_`
+
+
+a|.asciidoctor-pdf
+*:autofit-option:* *:pagenums:* *:pdfmark:* +
+*:chapter-label:* _Chapter_ +
+*:front-cover-image++:++* _image++:++front-cover.pdf[]_ +
+*:back-cover-image++:++* _image++:++front-cover.pdf[]_ +
+*:media:* [*screen* \| *print* \| *prepress*] +
+*:page-background-image++:++* _image++:++bg.jpg[]_ +
+*:pdf-page-layout:* [*portrait* \| *landscape*] +
+*:pdf-page-size:* [_named_ \| _width x height_] +
+*:text-alignment:* [*left \| right \| center*] +
+*:title-logo-image++:++* _image++:++logo.png[]_ +
+*:title-page-background-image++:++* _image++:++title-bg.jpg[]_
+
+*:pdf-stylesdir:*
+*:pdf-style:*
+*:pdf-fontsdir:*
+
+
+`*asciidoctor-pdf* _sample.adoc_` \|
+`asciidoctor *-r asciidoctor-pdf -b pdf* _sample.adoc_`
+
 //TODO a|.docinfo
 //TODO a|.index
+//TODO a|.localization
 
 
 a|
