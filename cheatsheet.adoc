@@ -3,9 +3,11 @@
 :source-highlighter: highlightjs
 :source-language: asciidoc
 :stylesheet: cheatsheet.css
+:noheader:
+:nofooter:
 
 
-[cols="4*"]
+[cols="9*"]
 |===
 
 
@@ -24,7 +26,7 @@ mo++``++``no``++``++space,
 ++[red]#++[red]#styled#++#++,
 s++[small]##++[small]##tyle##++##++d,
 
-.attributes
+.attribute
 **:**_attribute_**:** _value_ \| **\{set:**_attribute_**:**_value_**}**
 -> **{**_attribute_**}** = _value_ +
 **:**_attribute_**!:** \| **:!**_attribute_**:** \| **\{set:**_attribute_**!}**
@@ -39,14 +41,14 @@ s++[small]##++[small]##tyle##++##++d,
 **{counter2**:_name_**}** -> pass:[++]_name-value_
 
 
-a|.titles
+a|.title
 *=* _Document title_**:** _subtitle_ +
 *:toc:* [*auto \| preamble \| left \| right \| macro* (**toc::[]**)] +
 *:toc-title:* _text_ +
 *:toclevels:* [0-5] +
 _preamble-text_ +
 *==* Level 1 +
-*[discrete]* - ignores structure and TOC +
+*[discrete]* - no structure and TOC +
 *==* Level 1 +
 *:sectnums*: +
 *===* [red]#1.1.# Level 2 +
@@ -90,6 +92,7 @@ a|.header
 
 *:no-header-footer:*
 *:noheader:*
+*:nofooter:*
 *:notitle:*
 *:showtitle:*
 *:fragment:*
@@ -103,17 +106,19 @@ _delimeter_ +
 _block-text_ +
 _delimeter_
 
-delimeter - blockname: +
-`++////++` - comment +
-`++====++` - *[example]* +
-`++```++` {nbsp} - *[listing \| source]* +
-`++----++` - *[listing \| source]* +
-`++....++` - *[literal]* +
-`++--++` {nbsp}{nbsp}{nbsp} - open block +
-`pass:[++++]` - *[pass \| stem]* +
-`++____++` - *[quote \| verse]* +
-`++****++` - *[sidebar]* +
-`++\|===++` - table
+[cols="2*", options="header"]
+!===
+!delimeter !blockname +
+!`++////++` !comment +
+!`++====++` !*[example]* +
+!`++```++` {nbsp} !*[listing \| source]* +
+!`++----++` !*[listing \| source]* +
+!`++....++` !*[literal]* +
+!`++--++` {nbsp}{nbsp}{nbsp} !open block +
+!`pass:[++++]` !*[pass \| stem]* +
+!`++____++` !*[quote \| verse]* +
+!`++****++` !*[sidebar]* +
+!`++\|===++` !table
 
 a|.paragraph
 _paragraph 1_ +
@@ -129,7 +134,7 @@ _paragraph 2_
  // - comment
 
 
-.conditionals
+.conditional
 **ifdef::**_variable_**[]** \| **ifndef::**_variable_**[]** +
 **endif::**_variable_**[]** \| **endif::[]** +
 **ifdef::**_variable_**[**_inline_text_**]** +
@@ -142,7 +147,7 @@ _paragraph 2_
 **++== != < > <= >=++**
 
 
-a|.lists
+a|.list
 *[square \| circle \| disc \| none \| unstyled]* +
 * unordered 1 +
 \** unordered 1.1 +
@@ -166,7 +171,7 @@ _term_**::** _definition_ +
 {nbsp}{nbsp}  _subterm_**:::** _definition_
 
 
-a|.tables
+a|.table
 *[cols*,
  *format*=[*csv \| dsv \| psv*], +
  *separator*=['\|' \| '!' \| _char_], +
@@ -189,25 +194,25 @@ _cell-spec_\|_cell[2,2]_ +
 *a* - asciidoc, *e* - emphasis, *h* -header, *d* - default
 *l* - literal, *m* - monospaced, *s* - strong, *v* - verse
 
-_cell-spec_: _n_++*++ - repeat _n_, _n_+ - colspan, ._n_+ - rowspan, *<^>*, *.<^>*, *aehdlmsv*
+_cell-spec_: _n_++*++ - repeat, _n_+ - colspan, ._n_+ - rowspan, *<^>*, *.<^>*, *aehdlmsv*
 
 
-a|.links
-*http, https, ftp, irc, mailto, email@email.com* +
-**link:**_http://example.org_**[**_text, target, role_**]** +
+a|.link
+*http, https, ftp, irc, mailto, ++e@mail.com++* +
+**link++:++**_url_**[**_text, target, role_**]** +
  +
 _id_=[_id_ \| _external-file#id_] +
-**[[**_id_**]]** \| **anchor++:++**__id__**[**_reference-text_**]**
-\| **[[**_id, reference-text_**]]** +
+**[[**_id_**]]** \| **anchor++:++**__id__**[**_ref-text_**]**
+\| **[[**_id, ref-text_**]]** +
 `...` +
-**<<**_id, reference-text_**>>** \| **xref++:++**_id_**[**_reference-text_**]** +
+**<<**_id, ref-text_**>>** \| **xref++:++**_id_**[**_ref-text_**]** +
 
 .includes
 **include::**_file.txt_**[leveloffset**=+-_n_, +
 *lines*=7;14..25;28..-1, +
 *indent*=_n_, +
-*tags*=_tag-name;tag-name2_**]** +
-in file (# **tag::**_tag-name_**[]** ... # **end::**_tag-name_**[]**)
+*tags*=_tag1;tag2_**]** +
+(# **tag::**_tag1_**[]** ... # **end::**_tag1_**[]**)
 
 .bibliography
 **<<**_bib-item_**>>**. +
@@ -215,30 +220,30 @@ in file (# **tag::**_tag-name_**[]** ... # **end::**_tag-name_**[]**)
 *[bibliography]* +
 *- [[[bib-item]]]* _<description>_ +
 
-_text_**.footnote**:**[**_description_**]** +
-_text_**.footnoteref**:**[**_footnote-id, description_**]** +
-_text_**.footnoteref**:**[**_footnote-id_**]**
+_text_**.footnote**:**[**_text_**]** +
+_text_**.footnoteref**:**[**_id, text_**]** +
+_text_**.footnoteref**:**[**_id_**]**
 
 
-a|.images
+a|.image
 *:figure-caption:* *:imagesdir:* +
-**image::**_file.jpg_**[**_alt text_**]** +
+**image++:++**_inline.jpg_**[]** +
+**image::**_file.jpg_**[**_alt_**]** +
 **image::**_file.jpg_**[caption**, *title*, *alt*, *width*, *height*, *link*, +
- *float*=[*left \| right*], +
- *align*=[*text-left \| text-right \| text-center*], +
- *role*=[*left \| right \| th \| thumb \| related \| rel*], +
- *pdfwidth*, *scaledwidth*, *scale* **]** +
- +
-*pdfwidth* (pdf), *scaledwidth* (docbook), *scale* (docbook) - _n_[*px \| pt* (none) \| *pc \| cm \| mm \| in \| % \| vw*]
+*float*=[*left \| right*], +
+*align*=[*text-left \| text-right \| text-center*], +
+*role*=[*left \| right \| th \| thumb \| related \| rel*], +
+*pdfwidth*, *scaledwidth*, *scale* **]**
 
-*image[red]##:##*... - inline
+*pdfwidth* (pdf), *scaledwidth* (docbook),
+*scale* (docbook) - _n_[*pt*(def) \| *px* \| *pc* \| *cm* \| *mm* \| *in* \| *%* \| *vw*]
 
 .video and audio
-**video::**_video_file.mp4_**[***title*, *width*, *height*, *start*, *end*, *poster*, *theme*, *lang*, +
+**video::**_file.mp4_**[***title*, *width*, *height*, *start*, *end*, *poster*, *theme*, *lang*, +
 *options*=[*autoplay \| loop \| modest \| nocontrols \| nofullscreen*] **]** +
 **video::**rPQoq7ThGAU[*youtube* \| *vimeo*] +
- +
-**audio::**_audio_file.mp3_**[***options*=[*autoplay \| loop \| controls \| nocontrols*] **]**
+
+**audio::**_file.mp3_**[***options*=[*autoplay \| loop \| controls \| nocontrols*] **]**
 
 
 
@@ -255,7 +260,7 @@ pass:[____] +
 > _quote_
 
 .verse
-*[verse*, _attribution, citation title and information_**]** +
+*[verse*, _attribution, verse title and information_**]** +
 pass:[____] +
 _verse_ +
 pass:[____]
@@ -263,29 +268,27 @@ pass:[____]
 
 
 a|.source code
-*:source-highlighter:* [*pygments \| coderay \| highlightjs \| prettify*],
+*:source-highlighter:* [*pygments \| coderay \| highlightjs \| prettify*] +
 *:source-language:* +
  +
 *[source*,_language_**]** +
 `----` +
-get '/hi' do *<1>* +
-  "Hello World!" // *<2>* +
-end +
+code *<1>* +
 `----` +
-*<1>* - callout (*<!--1-->* for xml) +
-*<2>* - non-selectable callout (after // # ;;) +
+*<1>* - callout (*++<!--1-->++* for xml) +
  +
 ++```++_language_ +
-_code_ +
-++```++
+_code_ // *<2>* +
+++```++ +
+*<2>* - non-selectable (// # ;;) +
 
 
 .admonition
+_admonition_=[*NOTE \| TIP \| IMPORTANT \| WARNING \| CAUTION*] +
+
 **[**_admonition_**]** +
 _text_ +
- +
-_admonition_**:** _text_ +
-_admonition_=[*NOTE \| TIP \| IMPORTANT \| WARNING \| CAUTION*] +
+_admonition_**:** _inline-text_
 
 
 a|.math
@@ -300,20 +303,12 @@ pass:[++++] +
 *latexmath:***[**C = \alpha + \beta Y^{\gamma} + \epsilon**]**
 
 
-.icons
+.icon
 *:icons:* _font_ +
-*icon***:**_icon-name_**[size**=[_n_**x \| lg \| fw**], +
+*icon***:**_name_**[size**=[_n_**x \| lg \| fw**], +
 *rotate*=[*90 \| 180 \| 270*], +
 *flip*=[*horizontal \| vertical*], +
 *link*, *window*, *alt*, *width*, *height*, *title*, *role* **]**
-
-
-.experimental
-*:experimental:* +
-**++kbd++:[**_F11_**]** - keyboard image +
-**menu:**_Menu_**[**_Submenu_ **>** _Item_**]** - menu +
-**++btn++:[**_OK_**]** - buttons
-
 
 
 a|.asciidoctor-diagram
@@ -329,29 +324,28 @@ mermaid \| nwdiag  \| packetdiag\| plantuml \| rackdiag \|
 seqdiag \| shaape \| wavedrom* ] +
 _image-format_=[*gif* \| *png* \| *svg* \| *txt*]
 
-`asciidoctor *-r asciidoctor-diagram* _sample.adoc_`
+`asciidoctor *-r asciidoctor-diagram* _file_`
 
 
 a|.asciidoctor-pdf
 *:autofit-option:* *:pagenums:* *:pdfmark:* +
 *:chapter-label:* _Chapter_ +
-*:front-cover-image++:++* _image++:++front-cover.pdf[]_ +
-*:back-cover-image++:++* _image++:++front-cover.pdf[]_ +
+*:front-cover-image++:++* _image++:++cover.pdf[]_ +
+*:back-cover-image++:++* _image..._ +
 *:media:* [*screen* \| *print* \| *prepress*] +
-*:page-background-image++:++* _image++:++bg.jpg[]_ +
+*:page-background-image++:++* _image..._ +
 *:pdf-page-layout:* [*portrait* \| *landscape*] +
-*:pdf-page-size:* [_named_ \| _width x height_] +
+*:pdf-page-size:* [_name_ \| _w x h_] +
 *:text-alignment:* [*left \| right \| center*] +
-*:title-logo-image++:++* _image++:++logo.png[]_ +
-*:title-page-background-image++:++* _image++:++title-bg.jpg[]_
+*:title-logo-image++:++* _image..._ +
+*:title-page-background-image++:++* _image..._
 
 *:pdf-stylesdir:*
 *:pdf-style:*
 *:pdf-fontsdir:*
 
-
-`*asciidoctor-pdf* _sample.adoc_` \|
-`asciidoctor *-r asciidoctor-pdf -b pdf* _sample.adoc_`
+`*asciidoctor-pdf* _file_` \| +
+`asciidoctor *-b pdf -r asciidoctor-pdf* _file_`
 
 
 a|.localization
@@ -374,106 +368,68 @@ a|.localization
 *:version-label:*
 *:warning-caption:*
 
-//TODO a|.docinfo
-//TODO a|.index
+
+a|.attribute substitution
+{nbsp} +
+[cols="2*"]
+!===
+!*blank* - ++nothing++ +
+!*empty* - ++nothing++ +
+!*sp* - ++space++ +
+!*nbsp* - ++&#160;++ +
+!*zwsp[4]* - ++&#8203;++ +
+!*wj[5]* - ++&#8288;++ +
+!*apos* - {apos} +
+!*quot* - {quot} +
+!*lsquo* - {lsquo} +
+!*rsquo* - {rsquo} +
+!*ldquo* - {ldquo} +
+!*rdquo* - {rdquo} +
+!*deg* - {deg} +
+!*plus* - {plus} +
+!*brvbar* - {brvbar} +
+!*vbar* - {vbar} +
+!*amp* - {amp} +
+!*lt* - {lt} +
+!*gt* - {gt} +
+!*startsb* - {startsb} +
+!*endsb* - {endsb} +
+!*caret* - {caret} +
+!*asterisk* - {asterisk} +
+!*tilde* - {tilde} +
+!*backslash* - {backslash} +
+!*backtick* - {backtick} +
+!*two-colons* - {two-colons} +
+!*two-semicolons* - {two-semicolons} +
+!*cpp* - {cpp}
+!===
 
 
-a|
-a|
-a|
-
-|===
-
-
----
-
-
-[cols="3*"]
-|===
-
-
-a|.attribute substitutions
-```
-blank           nothing
-empty           nothing
-sp              single space
-nbsp            &#160;
-zwsp[4]         &#8203;
-wj[5]           &#8288;
-apos            '
-quot            "
-lsquo           ‘
-rsquo           ’
-ldquo           “
-rdquo           ”
-deg             °
-plus            +
-brvbar          ¦
-vbar            \|
-amp             &
-lt              <
-gt              >
-startsb         [
-endsb           ]
-caret           ^
-asterisk        *
-tilde           ~
-backslash       \
-backtick        `
-two-colons      ::
-two-semicolons	;;
-cpp           	C++
-```
-
-
-a|.environment attributes
+a|.environment attribute
 *:imagesdir:* ./images +
 *:iconsdir:* ./icons +
 *:stylesdir:* ./styles +
 *:scriptsdir:* ./js +
 
-*\{asciidoctor}*
-*\{asciidoctor-version}*    +
-*\{backend}*
-*\{basebackend}*            +
-*\{docdate}*
-*\{docdatetime}*            +
-*\{docdir}*
-*\{docfile}*                +
-*\{docname}*
-*\{doctime}*                +
-*\{doctype}*
-*\{embedded}*               +
-*\{filetype}*
-*\{htmlsyntax}*             +
-*\{localdate}*
-*\{localdatetime}*          +
-*\{localtime}*              +
-*\{outdir}*
-*\{outfile}*                +
-*\{outfilesuffix}*          +
-*\{safe-mode-level}*
-*\{safe-mode-name}*
-*\{safe-mode-unsafe}*
-*\{safe-mode-safe}*
-*\{safe-mode-server}*
-*\{safe-mode-secure}*       +
-*\{user-home}*              +
+*\{asciidoctor}* *\{asciidoctor-version}* +
+*\{backend}* *\{basebackend}* +
+*\{docdate}* *\{docdatetime}* +
+*\{docdir}* *\{docfile}* +
+*\{docname}* *\{doctime}* +
+*\{doctype}* *\{embedded}* +
+*\{filetype}* *\{htmlsyntax}* +
+*\{localdate}* *\{localdatetime}*  *\{localtime}* +
+*\{outdir}* *\{outfile}* *\{outfilesuffix}* +
+*\{safe-mode-level}* *\{safe-mode-name}* *\{safe-mode-unsafe}*
+*\{safe-mode-safe}* *\{safe-mode-server}* *\{safe-mode-secure}* +
+*\{user-home}* +
 
 
-a|.named substitutions
-**[subs=**""**]** +
-*none*                              - Disables substitutions                                       +
-*normal*                            - Performs all substitutions except for callouts               +
-*verbatim*                          - Replaces special characters and processes callouts           +
-*specialchars, specialcharacters* 	- Replaces <, >, and & with their corresponding entities       +
-*quotes*                            - Applies text formatting                                      +
-*attributes*                        - Replaces attribute references                                +
-*replacements*                      - Substitutes textual and character reference replacements     +
-*macros*                            - Processes macros                                             +
-*post_replacements*                 - Replaces the line break character (+)
+a|.named substitution
+subs=[*none* \| *normal* \| *verbatim* \| *specialchars* \| *specialcharacters* \| *quotes*
+\| *attributes* \| *replacements* \| *macros* \| *post_replacements*]
 
-.text replacements
+.text replacement
 ++(C)  ++       - `©`        +
 ++(R)  ++       - `®`        +
 ++(TM) ++       - `™`        +
@@ -486,10 +442,23 @@ a|.named substitutions
 ++Sam's++       - `Sam’s`
 
 
+.experimental
+*:experimental:* +
+**++kbd++:[**_F11_**]** - keyboard image +
+**menu:**_Menu_**[**_Submenu_ **>** _Item_**]** +
+**++btn++:[**_OK_**]** - buttons
 
+
+
+a|
+a|
+a|
 a|
 a|
 a|
 
 |===
 
+
+//TODO a|.docinfo
+//TODO a|.index
