@@ -1,0 +1,3 @@
+Short cheatsheet of asciidoc(tor) syntax and keywords.
+
+Intended to be printed in landscape mode.
