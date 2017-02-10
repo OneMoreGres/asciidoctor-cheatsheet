@@ -11,7 +11,10 @@
 |===
 
 
-a|.formatting
+a|
+legend: *keywords*, _user input_
+
+.formatting
 ++_++_italic_++_++,
 i++__++__tali__++__++c,
 ++*++*bold*++*++,
