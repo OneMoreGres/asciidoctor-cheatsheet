@@ -111,7 +111,7 @@ _delimeter_
 
 [cols="2*", options="header"]
 !===
-!delimeter !blockname +
+!delimiter !blockname +
 !`++////++` !comment +
 !`++====++` !*[example]* +
 !`++```++` {nbsp} !*[listing \| source]* +
